@@ -2,7 +2,6 @@ from __future__ import annotations
 
 from typing import final
 
-from langchain.chains.llm import LLMChain
 from langchain.prompts import PromptTemplate
 from langchain_ollama import OllamaLLM
 
@@ -24,7 +23,7 @@ class SeoOptimizationAgent:
                 "and overall content structure. Ensure headings and subheadings are well defined.\n\nBlog post:\n{blog_post}"
             ),
         )
-        self.chain = LLMChain(llm=self.model, prompt=self.prompt)
+        self.chain = self.prompt | self.model
 
     def run(self, blog_post: str) -> str:
-        return self.chain.run({"blog_post": blog_post})
+        return self.chain.invoke({"blog_post": blog_post})

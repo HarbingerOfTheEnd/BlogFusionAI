@@ -2,7 +2,6 @@ from __future__ import annotations
 
 from typing import final
 
-from langchain.chains.llm import LLMChain
 from langchain.prompts import PromptTemplate
 from langchain_ollama import OllamaLLM
 
@@ -25,7 +24,7 @@ class ResearchAgent:
                 "Present your response in a clear and comprehensive manner."
             ),
         )
-        self.chain = LLMChain(llm=model, prompt=self.prompt)
+        self.chain = self.prompt | self.model
 
     def run(self) -> str:
-        return self.chain.run()
+        return self.chain.invoke({})

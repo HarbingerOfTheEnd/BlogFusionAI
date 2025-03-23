@@ -2,7 +2,6 @@ from __future__ import annotations
 
 from typing import final
 
-from langchain.chains.llm import LLMChain
 from langchain.prompts import PromptTemplate
 from langchain_ollama import OllamaLLM
 
@@ -26,10 +25,10 @@ class ContentGenerationAgent:
                 "Ensure the content is engaging, informative, and well-structured with appropriate headings and subheadings."
             ),
         )
-        self.chain = LLMChain(llm=self.model, prompt=self.prompt)
+        self.chain = self.prompt | self.model
 
     def run(self, outline: str, research_summary: str) -> str:
-        return self.chain.run(
+        return self.chain.invoke(
             {
                 "outline": outline,
                 "research_summary": research_summary,

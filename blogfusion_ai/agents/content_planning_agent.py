@@ -2,7 +2,6 @@ from __future__ import annotations
 
 from typing import final
 
-from langchain.chains.llm import LLMChain
 from langchain.prompts import PromptTemplate
 from langchain_ollama import OllamaLLM
 
@@ -25,7 +24,7 @@ class ContentPlanningAgent:
                 "Include main headings, subheadings, and a logical content structure."
             ),
         )
-        self.chain = LLMChain(llm=self.model, prompt=self.prompt)
+        self.chain = self.prompt | self.model
 
     def run(self, research_summary: str) -> str:
-        return self.chain.run({"research_summary": research_summary})
+        return self.chain.invoke({"research_summary": research_summary})
