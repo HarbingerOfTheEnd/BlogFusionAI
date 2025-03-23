@@ -27,5 +27,5 @@ class ResearchAgent:
         )
         self.chain = LLMChain(llm=model, prompt=self.prompt)
 
-    def generate_response(self) -> str:
+    def run(self) -> str:
         return self.chain.run()
