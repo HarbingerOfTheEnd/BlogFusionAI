@@ -27,5 +27,5 @@ class ContentPlanningAgent:
         )
         self.chain = LLMChain(llm=self.model, prompt=self.prompt)
 
-    def run(self, research_summary: str) -> None:
+    def run(self, research_summary: str) -> str:
         return self.chain.run({"research_summary": research_summary})
