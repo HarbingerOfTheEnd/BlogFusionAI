@@ -39,7 +39,7 @@ def main() -> None:
     final_blog_post = review_agent.run(seo_blog_post)
     print("Final Blog Post:\n", final_blog_post)
 
-    with open("final_blog_post.md", "w", encoding="utf-8") as f:
+    with open("final_blog_post.html", "w", encoding="utf-8") as f:
         f.write(final_blog_post)
 
     print("\nFinal blog post saved to 'final_blog_post.md'.")
