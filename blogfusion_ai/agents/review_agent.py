@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from re import DOTALL, sub
 from typing import final
 
 from langchain.prompts import PromptTemplate
@@ -26,4 +27,9 @@ class ReviewAgent:
         self.chain = self.prompt | self.model
 
     def run(self, blog_post: str) -> str:
-        return self.chain.invoke({"blog_post": blog_post})
+        return sub(
+            r"<think>.*?</think>",
+            "",
+            self.chain.invoke({"blog_post": blog_post}),
+            flags=DOTALL,
+        )
