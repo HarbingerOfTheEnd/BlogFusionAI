@@ -1,4 +1,4 @@
-# Multi-Agent Blog Post Generator
+# BlogFusion AI - A Multi-Agent Blog Post Generator
 
 ## Overview
 
