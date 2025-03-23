@@ -21,7 +21,7 @@ class ReviewAgent:
             input_variables=["blog_post"],
             template=(
                 "Proofread and improve the following blog post. Correct any grammatical errors, enhance readability, "
-                "and polish the content quality overall. Return the improved blog post.\n\nBlog post:\n{blog_post}"
+                "and polish the content quality overall. Return the improved blog post as HTML.\n\nBlog post:\n{blog_post}"
             ),
         )
         self.chain = self.prompt | self.model
