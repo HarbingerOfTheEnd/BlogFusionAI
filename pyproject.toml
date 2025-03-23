@@ -6,5 +6,6 @@ readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
     "langchain>=0.3.21",
+    "langchain-ollama>=0.3.0",
     "ollama>=0.4.7",
 ]
