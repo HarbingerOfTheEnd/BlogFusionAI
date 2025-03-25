@@ -10,7 +10,7 @@ repos:
       - id: ruff
         name: Ruff Lint (Check)
         entry: ruff
-        args: ["lint"]
+        args: ["check", "--fix"]
         language_version: python3
 
   - repo: https://github.com/pre-commit/mirrors-mypy
