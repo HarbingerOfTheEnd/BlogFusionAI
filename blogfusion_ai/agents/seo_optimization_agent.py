@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-from re import DOTALL, sub
 from typing import final
 
 from langchain.prompts import PromptTemplate
@@ -20,16 +19,12 @@ class SeoOptimizationAgent:
         self.prompt = PromptTemplate(
             input_variables=["blog_post"],
             template=(
-                "Optimize the following blog post for SEO. Improve keyword usage, meta descriptions, "
+                "Optimize the following blog post for SEO. Add many meta tags to improve SEO. Improve keyword usage, meta descriptions, "
                 "and overall content structure. Ensure headings and subheadings are well defined.\n\nBlog post:\n{blog_post}"
+                "\n\nThe output should contain only the optimized blog post as pure HTML content."
             ),
         )
         self.chain = self.prompt | self.model
 
     def run(self, blog_post: str) -> str:
-        return sub(
-            r"<think.*?</think>",
-            "",
-            self.chain.invoke({"blog_post": blog_post}),
-            flags=DOTALL,
-        )
+        return self.chain.invoke({"blog_post": blog_post})

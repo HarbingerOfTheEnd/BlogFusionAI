@@ -22,7 +22,8 @@ class ContentPlanningAgent:
             template=(
                 "Based on the following research summary:\n\n{research_summary}\n\n"
                 "Generate a detailed outline for a 2000-word SEO-optimized blog post as HTML. "
-                "Include main headings, subheadings, and a logical content structure."
+                "Include main headings, subheadings, and a logical content structure. "
+                "The response should contain only the html content."
             ),
         )
         self.chain = self.prompt | self.model

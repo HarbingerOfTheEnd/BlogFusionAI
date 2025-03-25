@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-from re import DOTALL, sub
 from typing import final
 
 from langchain.prompts import PromptTemplate
@@ -28,9 +27,4 @@ class ResearchAgent:
         self.chain = self.prompt | self.model
 
     def run(self) -> str:
-        return sub(
-            r"<think>.*?</think>",
-            "",
-            self.chain.invoke({}),
-            flags=DOTALL,
-        )
+        return self.chain.invoke({})
