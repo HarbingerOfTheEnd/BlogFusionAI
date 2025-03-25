@@ -14,12 +14,12 @@ class ResearchAgent:
         "chain",
     )
 
-    def __init__(self, model: OllamaLLM) -> None:
+    def __init__(self, model: OllamaLLM, topic: str) -> None:
         self.model = model
         self.prompt = PromptTemplate(
             input_variables=[],
             template=(
-                "Identify a trending HR-related topic. Provide a detailed summary including current statistics, "
+                f"IGiven topic: {topic}\nProvide a detailed summary including current statistics, "
                 "challenges, emerging trends, and any relevant background information. "
                 "Present your response in a clear and comprehensive manner."
             ),

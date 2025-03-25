@@ -12,8 +12,9 @@ from blogfusion_ai import (
 
 
 def main() -> None:
-    model = OllamaLLM(model="deepseek-r1")
-    research_agent = ResearchAgent(model)
+    model = OllamaLLM(model="llama3.2")
+    topic = input("Enter the topic for the blog post: ")
+    research_agent = ResearchAgent(model, topic)
     planning_agent = ContentPlanningAgent(model)
     generation_agent = ContentGenerationAgent(model)
     seo_agent = SeoOptimizationAgent(model)
