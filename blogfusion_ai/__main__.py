@@ -43,7 +43,7 @@ def main() -> None:
     with open("final_blog_post.html", "w", encoding="utf-8") as f:
         f.write(final_blog_post)
 
-    print("\nFinal blog post saved to 'final_blog_post.md'.")
+    print("\nFinal blog post saved to 'final_blog_post.html'.")
 
 
 if __name__ == "__main__":
