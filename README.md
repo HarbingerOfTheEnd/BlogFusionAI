@@ -25,7 +25,7 @@ The system is composed of the following agents:
 ## Tools and Frameworks Used
 
 - **LangChain:** For creating LLM chains and managing prompt templates.
-- **Ollama deepseek-r1:** As the language model backend.
+- **Ollama llama3.2:** As the language model backend.
 - **Python:** For scripting and orchestration.
 
 ## Setup and Installation
