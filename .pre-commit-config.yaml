@@ -5,12 +5,12 @@ repos:
       - id: ruff
         name: Ruff Auto-Fix (Formatting)
         entry: ruff
-        args: ["--fix"]
+        args: ["format"]
         language_version: python3
       - id: ruff
         name: Ruff Lint (Check)
         entry: ruff
-        args: ["--fix"]
+        args: ["lint"]
         language_version: python3
 
   - repo: https://github.com/pre-commit/mirrors-mypy
